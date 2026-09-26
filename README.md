@@ -11,7 +11,7 @@ Site: https://lowfi.jakedavisanalytics.com
 
 | path | what |
 |---|---|
-| `data/weekly/2026/wkNN/` | each week's archive as that Tuesday's run wrote it, before the games. **The record.** 4 weeks released so far. |
+| `data/weekly/2026/wkNN/` | each week's archive as that Tuesday's run wrote it, before the games. **The record.** 3 weeks released so far. |
 | `data/history/lowfi_history` | every team, every week, 2004–2026: both models' ratings, labeled `live` or `retrodiction` |
 | `data/scores/lowfi_scores` | every scored regular-season game, both models and the market, labeled `live` or `retrodiction` |
 
@@ -54,7 +54,7 @@ alongside LOWFI.
 
 Cite as:
 
-> Davis, J. (2026). *LOWFI: NFL ratings and forecasts*, data release through 2026 wk04. Jake Davis Analytics. https://lowfi.jakedavisanalytics.com
+> Davis, J. (2026). *LOWFI: NFL ratings and forecasts*, data release through 2026 wk03. Jake Davis Analytics. https://lowfi.jakedavisanalytics.com
 
 ## Not released
 

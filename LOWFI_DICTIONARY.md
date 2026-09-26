@@ -166,7 +166,6 @@ LOWFI/1 season projections from the simulation.
 | `won_sb` | numeric | share of simulated seasons winning the Super Bowl |
 | `draft1` | numeric | share of simulated seasons ending with the No.1 draft pick |
 | `draft5` | numeric | share of simulated seasons ending with a top-5 draft pick |
-| `pd_ahead` | numeric | mean simulated point differential in the regular-season games still to play |
 
 ## `projections_m0.csv`
 
@@ -185,7 +184,6 @@ LOWFI/0 season projections from the simulation.
 | `won_sb` | numeric | share of simulated seasons winning the Super Bowl |
 | `draft1` | numeric | share of simulated seasons ending with the No.1 draft pick |
 | `draft5` | numeric | share of simulated seasons ending with a top-5 draft pick |
-| `pd_ahead` | numeric | mean simulated point differential in the regular-season games still to play |
 
 ## `win_distribution.csv`
 
@@ -218,8 +216,6 @@ Every game still to play, with both models' line and win probability and the mar
 | `spread_line` | numeric | market spread as home margin (+ = home favored), as on file when written |
 | `spread_pred` | numeric | LOWFI/1 expected home margin (+ = home favored) |
 | `p_home` | numeric | LOWFI/1 home win probability (a tie counts half) |
-| `m0_margin` | numeric | LOWFI/0 win probability mapped to a home margin. A calibration, not a points forecast. |
-| `p_home_m0` | numeric | LOWFI/0 home win probability (a tie counts half) |
 
 ## `rating_explanation.csv`
 
@@ -244,7 +240,6 @@ When the week's forecasts were written, and on what evidence.
 | `file` | character | the archive file this timestamp dates |
 | `written_utc` | POSIXct | when the week's forecasts were written, UTC |
 | `backfilled` | logical | TRUE when the time was recovered after the fact rather than recorded by the run |
-| `basis` | character | evidence for written_utc: run, line snapshot, or file modified time |
 
 ## `history/lowfi_history.csv`
 
