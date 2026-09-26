@@ -14,52 +14,52 @@ The week's games: LOWFI/1 line and win probability, the market line and price, c
 | `season` | numeric | NFL season |
 | `week` | numeric | week of the season |
 | `team_home` | character | home team |
-| `game_played` | logical | **UNDOCUMENTED** |
+| `game_played` | logical | TRUE once the game has a final result; FALSE for every game in a forecast week |
 | `result` | logical | final home margin |
 | `spread_line` | numeric | market spread as home margin (+ = home favored), as on file when written |
-| `total_line` | numeric | **UNDOCUMENTED** |
-| `div_game` | numeric | **UNDOCUMENTED** |
-| `off_rating_home` | numeric | **UNDOCUMENTED** |
-| `def_rating_home` | numeric | **UNDOCUMENTED** |
-| `net_rating_home` | numeric | **UNDOCUMENTED** |
-| `off_se_home` | numeric | **UNDOCUMENTED** |
-| `def_se_home` | numeric | **UNDOCUMENTED** |
-| `games_played_home` | numeric | **UNDOCUMENTED** |
+| `total_line` | numeric | market over/under total points, as on file when written |
+| `div_game` | numeric | 1 for a division game |
+| `off_rating_home` | numeric | home team's LOWFI/1 offense going into the game |
+| `def_rating_home` | numeric | home team's LOWFI/1 defense going into the game, RAW coefficient (more negative is better) |
+| `net_rating_home` | numeric | home team's LOWFI/1 net rating going into the game |
+| `off_se_home` | numeric | standard error of off_rating_home |
+| `def_se_home` | numeric | standard error of def_rating_home |
+| `games_played_home` | numeric | games the home team had played before this one |
 | `team_away` | character | away team |
-| `off_rating_away` | numeric | **UNDOCUMENTED** |
-| `def_rating_away` | numeric | **UNDOCUMENTED** |
-| `net_rating_away` | numeric | **UNDOCUMENTED** |
-| `off_se_away` | numeric | **UNDOCUMENTED** |
-| `def_se_away` | numeric | **UNDOCUMENTED** |
-| `games_played_away` | numeric | **UNDOCUMENTED** |
-| `strength_diff` | numeric | **UNDOCUMENTED** |
+| `off_rating_away` | numeric | away team's LOWFI/1 offense going into the game |
+| `def_rating_away` | numeric | away team's LOWFI/1 defense going into the game, RAW coefficient (more negative is better) |
+| `net_rating_away` | numeric | away team's LOWFI/1 net rating going into the game |
+| `off_se_away` | numeric | standard error of off_rating_away |
+| `def_se_away` | numeric | standard error of def_rating_away |
+| `games_played_away` | numeric | games the away team had played before this one |
+| `strength_diff` | numeric | (off_rating_home - off_rating_away) + (def_rating_away - def_rating_home): the ratings' implied home edge, before home field. A diagnostic; the spread model regresses on the four ratings directly. |
 | `spread_pred` | numeric | LOWFI/1 expected home margin (+ = home favored) |
 | `gameday` | Date | date of the game |
-| `gametime` | hms | **UNDOCUMENTED** |
+| `gametime` | hms | scheduled kickoff time, US Eastern (nflverse) |
 | `home_moneyline` | numeric | home moneyline, American odds |
 | `away_moneyline` | numeric | away moneyline, American odds |
-| `home_spread_odds` | numeric | **UNDOCUMENTED** |
-| `away_spread_odds` | numeric | **UNDOCUMENTED** |
+| `home_spread_odds` | numeric | American odds on the home side of the spread |
+| `away_spread_odds` | numeric | American odds on the away side of the spread |
 | `p_home` | numeric | LOWFI/1 home win probability (a tie counts half) |
 | `p_cover_home` | numeric | LOWFI/1 probability the home team beats the spread |
 | `p_push` | numeric | LOWFI/1 probability the game lands exactly on the spread |
 | `model_p_home` | numeric | LOWFI/1 home win probability (a tie counts half) |
-| `model_p_away` | numeric | **UNDOCUMENTED** |
-| `p_cover_away` | numeric | **UNDOCUMENTED** |
+| `model_p_away` | numeric | LOWFI/1 away win probability (a tie counts half): 1 - model_p_home |
+| `p_cover_away` | numeric | LOWFI/1 probability the away team beats the spread |
 | `mkt_p_home` | numeric | market home win probability, de-vigged from the moneylines |
-| `mkt_hold_ml` | numeric | **UNDOCUMENTED** |
-| `mkt_p_cover_home` | numeric | **UNDOCUMENTED** |
-| `mkt_hold_spread` | numeric | **UNDOCUMENTED** |
-| `ev_ml_home` | numeric | **UNDOCUMENTED** |
-| `ev_ml_away` | numeric | **UNDOCUMENTED** |
-| `ev_sp_home` | numeric | **UNDOCUMENTED** |
-| `ev_sp_away` | numeric | **UNDOCUMENTED** |
-| `units_ml_home` | numeric | **UNDOCUMENTED** |
-| `units_ml_away` | numeric | **UNDOCUMENTED** |
+| `mkt_hold_ml` | numeric | bookmaker margin in the moneylines: the two implied probabilities' sum, minus 1 |
+| `mkt_p_cover_home` | numeric | market probability the home team covers, de-vigged from the spread odds |
+| `mkt_hold_spread` | numeric | bookmaker margin in the spread odds: the two implied probabilities' sum, minus 1 |
+| `ev_ml_home` | numeric | expected value per unit staked on the home moneyline, at LOWFI/1's probability |
+| `ev_ml_away` | numeric | expected value per unit staked on the away moneyline, at LOWFI/1's probability |
+| `ev_sp_home` | numeric | expected value per unit staked on the home spread; a push returns the stake |
+| `ev_sp_away` | numeric | expected value per unit staked on the away spread; a push returns the stake |
+| `units_ml_home` | numeric | LOWFI/1 quarter-Kelly stake on the home moneyline, units per 100. Zero means pass. Not advice. |
+| `units_ml_away` | numeric | LOWFI/1 quarter-Kelly stake on the away moneyline, units per 100. Zero means pass. Not advice. |
 | `units_sp_home` | numeric | LOWFI/1 quarter-Kelly stake on the home side, units per 100. Zero means pass. Not advice. |
 | `units_sp_away` | numeric | LOWFI/1 quarter-Kelly stake on the away side, units per 100. Zero means pass. Not advice. |
-| `edge_points` | numeric | **UNDOCUMENTED** |
-| `edge_prob` | numeric | **UNDOCUMENTED** |
+| `edge_points` | numeric | spread_pred - spread_line: LOWFI/1's disagreement with the market, points, home side |
+| `edge_prob` | numeric | model_p_home - mkt_p_home: the same disagreement as a probability |
 
 ## `games_m0.csv`
 
@@ -80,7 +80,7 @@ LOWFI/1 ratings for all 32 teams, going into the week.
 | column | type | description |
 |---|---|---|
 | `team` | character | team abbreviation (nflverse) |
-| `games_played` | numeric | **UNDOCUMENTED** |
+| `games_played` | numeric | games the team had played before this week |
 | `off_rating` | numeric | LOWFI/1 offense: points scored per game above an average offense, against an average defense |
 | `off_se` | numeric | standard error of off_rating |
 | `def_rating` | numeric | LOWFI/1 defense, RAW coefficient: points allowed relative to average. More negative is better. The site shows -def_rating as points prevented. |
@@ -96,7 +96,7 @@ The team-page view: both models' ratings, record, scoring, schedule strength and
 | column | type | description |
 |---|---|---|
 | `team` | character | team abbreviation (nflverse) |
-| `games_played` | numeric | **UNDOCUMENTED** |
+| `games_played` | numeric | games the team had played before this week |
 | `off_rating` | numeric | LOWFI/1 offense: points scored per game above an average offense, against an average defense |
 | `off_se` | numeric | standard error of off_rating |
 | `def_rating` | numeric | LOWFI/1 defense, RAW coefficient: points allowed relative to average. More negative is better. The site shows -def_rating as points prevented. |
@@ -106,13 +106,13 @@ The team-page view: both models' ratings, record, scoring, schedule strength and
 | `pa_rating` | numeric | unadjusted points allowed per game (for the raw rank) |
 | `conf` | character | conference |
 | `division` | character | division |
-| `team_color` | character | **UNDOCUMENTED** |
-| `team_color2` | character | **UNDOCUMENTED** |
-| `logo` | character | **UNDOCUMENTED** |
-| `plot_color` | character | **UNDOCUMENTED** |
+| `team_color` | character | team primary color (nflverse) |
+| `team_color2` | character | team secondary color (nflverse) |
+| `logo` | character | team logo URL (nflverse) |
+| `plot_color` | character | the team color used on charts, chosen to show on a black background |
 | `def_display` | numeric | LOWFI/1 defense as the site shows it: points prevented per game. Higher is better. Equals -def_rating. |
 | `net_se` | numeric | standard error of net_rating |
-| `div2` | character | **UNDOCUMENTED** |
+| `div2` | character | division without the conference: East, North, South or West |
 | `g` | numeric | games played |
 | `w` | numeric | wins |
 | `l` | numeric | losses |
@@ -120,7 +120,7 @@ The team-page view: both models' ratings, record, scoring, schedule strength and
 | `pf` | numeric | points scored per game |
 | `pa` | numeric | points allowed per game |
 | `pd` | numeric | point differential per game |
-| `pythag` | numeric | **UNDOCUMENTED** |
+| `pythag` | numeric | Pythagorean win percentage: pf^2.37 / (pf^2.37 + pa^2.37) |
 | `record` | character | win-loss(-tie) record |
 | `sos_played` | numeric | mean LOWFI/1 net rating of opponents played |
 | `sos_left` | numeric | mean LOWFI/1 net rating of opponents still to play |
@@ -138,7 +138,7 @@ The team-page view: both models' ratings, record, scoring, schedule strength and
 | `pf_vs` | numeric | points scored per game minus the league average |
 | `pa_vs` | numeric | league average minus points allowed per game (+ is better) |
 | `pd_vs` | numeric | point differential per game against the league average |
-| `n_games` | numeric | **UNDOCUMENTED** |
+| `n_games` | numeric | games played to date, as counted for the team view |
 | `pythag_wins` | numeric | Pythagorean wins over 17 games, exponent 2.37 |
 | `net_rank` | numeric | rank of net_rating, 1 to 32 |
 | `off_rank` | numeric | rank of off_rating, 1 to 32 |
@@ -146,7 +146,7 @@ The team-page view: both models' ratings, record, scoring, schedule strength and
 | `pf_rank` | numeric | rank of pf |
 | `pa_rank` | numeric | rank of pa, 1 = fewest allowed |
 | `pd_rank` | numeric | rank of pd |
-| `prev_net` | numeric | **UNDOCUMENTED** |
+| `prev_net` | numeric | LOWFI/1 net rating in the previous archived week; net_change is net_rating - prev_net |
 | `net_change` | numeric | change in net_rating from the previous archived week |
 
 ## `projections.csv`
@@ -208,13 +208,13 @@ Every game still to play, with both models' line and win probability and the mar
 | `game_id` | character | nflverse game identifier. JOIN KEY to nflverse schedules and play-by-play. |
 | `week` | numeric | week of the season |
 | `gameday` | Date | date of the game |
-| `gametime` | hms | **UNDOCUMENTED** |
+| `gametime` | hms | scheduled kickoff time, US Eastern (nflverse) |
 | `team_away` | character | away team |
 | `team_home` | character | home team |
 | `away_moneyline` | numeric | away moneyline, American odds |
 | `home_moneyline` | numeric | home moneyline, American odds |
-| `home_spread_odds` | numeric | **UNDOCUMENTED** |
-| `away_spread_odds` | numeric | **UNDOCUMENTED** |
+| `home_spread_odds` | numeric | American odds on the home side of the spread |
+| `away_spread_odds` | numeric | American odds on the away side of the spread |
 | `spread_line` | numeric | market spread as home margin (+ = home favored), as on file when written |
 | `spread_pred` | numeric | LOWFI/1 expected home margin (+ = home favored) |
 | `p_home` | numeric | LOWFI/1 home win probability (a tie counts half) |
@@ -230,8 +230,8 @@ What each LOWFI/1 rating is built from, by term.
 | `team` | character | team abbreviation (nflverse) |
 | `week` | numeric | week of the season |
 | `group` | character | the term of the LOWFI/1 rating this row adds |
-| `.pred` | numeric | **UNDOCUMENTED** |
-| `intercept` | numeric | **UNDOCUMENTED** |
+| `.pred` | numeric | the rating this side's terms add up to: intercept + the sum of total over its rows, exactly |
+| `intercept` | numeric | the model's baseline, a league-average team, before any term is added |
 | `total` | numeric | that term's contribution, points per game |
 | `side` | character | offense or defense |
 
