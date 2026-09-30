@@ -12,10 +12,13 @@ retrodicted season is honest (a week 10 game is forecast from week 9 ratings), b
 the model was built knowing how those seasons ended. Retrodictions describe the
 model; only live rows are a track record.
 
-## 2. 2023 to 2025 are in the training data
+## 2. Every retrodicted season is in the training data
 
-The production model is fitted on seasons through 2025, so retrodictions for 2023
-on are in-sample. Treat them as the least informative seasons in the history.
+The production model is fitted on every completed season from 2004 through 2025,
+so every retrodiction is in-sample: the model has seen how each of those seasons
+ended. The published accuracy figures come from a separate evaluation fit that
+never saw 2023 to 2025; the retrodictions here come from the production fit, and
+are no substitute for those figures.
 
 ## 3. A forecast counts only if it existed before kickoff
 

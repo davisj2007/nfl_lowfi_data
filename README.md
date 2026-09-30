@@ -1,4 +1,4 @@
-# LOWFI — NFL ratings and forecasts, on box scores alone
+# LOWFI (Latent Outlook Weekly Forecasting Interval) — NFL ratings and forecasts, on box scores alone
 
 Two models. **LOWFI/1** rates every offense and defense in points per game against
 an average opponent. **LOWFI/0**, the original, sees only who won and keeps one
@@ -56,7 +56,4 @@ Cite as:
 
 > Davis, J. (2026). *LOWFI: NFL ratings and forecasts*, data release through 2026 wk04. Jake Davis Analytics. https://lowfi.jakedavisanalytics.com
 
-## Not released
 
-The fitted models, and the preseason market win totals the LOWFI/1 prior is built
-from (third-party data, not ours to redistribute).
