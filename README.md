@@ -36,13 +36,16 @@ In each weekly folder:
 
 - `LOWFI_DICTIONARY.md`: every column, generated from the data
 - `LOWFI_CAVEATS.md`: **read this before publishing anything**
+- `CORRECTIONS.md`: every bug fix applied to a released week
 - `examples/`: score a week yourself; plot a team over time
 
 ## How it is kept honest
 
 Each week's forecasts are archived before the week's first game and read back
-unchanged. A released week never changes after kickoff. Nothing here is refit
-after the fact: the weekly folders are what existed at the time.
+unchanged. A released week never changes after kickoff, except by a documented
+correction: a bug fix to named columns, recomputed from that week's own inputs and
+listed in `CORRECTIONS.md`. Nothing here is refit after the fact: the weekly
+folders are what existed at the time.
 
 ## License and citation
 

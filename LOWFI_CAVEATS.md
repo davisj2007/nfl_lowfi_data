@@ -26,7 +26,9 @@ Every weekly folder carries `written.csv`: when its forecasts were written and o
 what evidence (`run` when the run recorded it; `line snapshot` when recovered from
 the line snapshot the same run saved). A week whose archive was written after its
 first game is not released and not scored. Released weeks never change after
-their first game.
+their first game, except by a correction listed in `CORRECTIONS.md`: a bug fix to
+named columns, recomputed from the week's own archived inputs, with `written.csv`
+left as it was.
 
 ## 4. "Market" means two different prices
 
